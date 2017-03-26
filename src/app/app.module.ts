@@ -1,12 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { CommonModule } from './common/components';
-import { CoursesModule } from './components/courses';
-import {
-  NgModule,
-  ApplicationRef
-} from '@angular/core';
+import { NgModule, ApplicationRef } from '@angular/core';
 import {
   removeNgStyles,
   createNewHosts,
@@ -26,6 +19,10 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
+
+import { CoreModule } from './core/core.module';
+import { CoursesModule } from './components/courses/courses.module';
+import { CourseDetailsModule } from './components/course-details/course-details.module';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -52,17 +49,17 @@ type StoreType = {
   ],
   imports: [ // import Angular's modules
     BrowserModule,
-    FormsModule,
-    HttpModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-    CommonModule,
-    CoursesModule
+    CoreModule.forRoot(),
+    CoursesModule,
+    CourseDetailsModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
     APP_PROVIDERS
   ]
 })
+
 export class AppModule {
 
   constructor(

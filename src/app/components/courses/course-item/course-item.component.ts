@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Input } from '@angular/core/src/metadata/directives';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from './Item';
 
 @Component({
@@ -7,9 +6,15 @@ import { Item } from './Item';
   templateUrl: 'course-item.component.html',
   styles: [require('./course-item.component.css')]
 })
-export class CourseItemComponent {
-  @Input() public item: Item;
 
-  constructor() {
+export class CourseItemComponent {
+  @Input() 
+  item: Item;
+  @Output()
+  removeCourse: EventEmitter<Item> = new EventEmitter();
+
+  remove(courseItem: Item) {
+  	console.log('item');
+    this.removeCourse.emit(courseItem);
   }
 }

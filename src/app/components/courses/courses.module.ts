@@ -1,10 +1,10 @@
 ﻿import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '../../common/components';
+
+import { CoreModule } from '../../core/core.module';
 import { CoursesComponent } from './courses.component';
 import { ToolboxComponent } from './toolbox/toolbox.component';
 import { CourseItemComponent } from './course-item/course-item.component';
+import { CoursesService } from './courses.service';
 
 @NgModule({
   declarations: [
@@ -13,16 +13,15 @@ import { CourseItemComponent } from './course-item/course-item.component';
     CourseItemComponent
     ],
   imports: [
-    CommonModule,
-    BrowserModule,
-    FormsModule
+    CoreModule
+  ],
+  providers: [
+    CoursesService
   ],
   exports: [
-    CoursesComponent,
-    ToolboxComponent,
-    CourseItemComponent
+    CoursesComponent
   ]
 })
+
 export class CoursesModule {
-  constructor() {}
 }

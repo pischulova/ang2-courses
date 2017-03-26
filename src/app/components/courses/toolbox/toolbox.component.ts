@@ -6,6 +6,7 @@ import { Input } from '@angular/core/src/metadata/directives';
   templateUrl: 'toolbox.component.html',
   styles: [require('./toolbox.component.css')]
 })
+
 export class ToolboxComponent {
   @Input() public searchInput: string;
 

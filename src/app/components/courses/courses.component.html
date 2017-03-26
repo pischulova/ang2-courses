@@ -1,6 +1,6 @@
 <app-header></app-header>
 <toolbox></toolbox>
 <div *ngFor="let course of courseList">
-  <course-item [item]="course"></course-item>
+  <course-item [item]="course" (removeCourse)="removeCourse($event)"></course-item>
 </div>
 <app-footer></app-footer>
