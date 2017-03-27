@@ -8,13 +8,15 @@ import { Item } from './Item';
 })
 
 export class CourseItemComponent {
-  @Input() 
-  item: Item;
+  @Input()
+  public item: Item;
   @Output()
-  removeCourse: EventEmitter<Item> = new EventEmitter();
+  public removeCourse: EventEmitter<Item> = new EventEmitter();
 
-  remove(courseItem: Item) {
-  	console.log('item');
-    this.removeCourse.emit(courseItem);
+  public remove(courseItem: Item) {
+    const confirmed = confirm('Do you really want to delete this course?');
+    if (confirmed === true) {
+      this.removeCourse.emit(courseItem);
+    }
   }
 }

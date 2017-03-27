@@ -1,11 +1,23 @@
 import { Component } from '@angular/core';
+import { AuthorizationService } from '../../services';
 
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
   styles: [require('./header.component.css')]
 })
-export class HeaderComponent {
-  constructor() {
+export class LoginComponent {
+  constructor(private authService: AuthorizationService) {}
+
+  public isUserAuthorized(): boolean {
+    return this.authService.isAuthenticated;
+  }
+
+  public getUserName(): string {
+    return this.authService.getUserInfo();
+  }
+
+  public logout() {
+    this.authService.logout();
   }
 }

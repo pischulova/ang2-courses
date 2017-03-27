@@ -21,8 +21,7 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
 
 import { CoreModule } from './core/core.module';
-import { CoursesModule } from './components/courses/courses.module';
-import { CourseDetailsModule } from './components/course-details/course-details.module';
+import * as customModules from './components';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -39,6 +38,12 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
+function toArray(obj) {
+  return Object.keys(obj).map((k) => obj[k]);
+}
+
+const featureModules = [...toArray(customModules)];
+
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
  */
@@ -51,8 +56,7 @@ type StoreType = {
     BrowserModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
     CoreModule.forRoot(),
-    CoursesModule,
-    CourseDetailsModule
+    ...featureModules
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

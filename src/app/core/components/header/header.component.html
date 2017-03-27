@@ -1,11 +1,16 @@
 <header class="app-header">
   <div>
     <img class="logo" src="../../../../assets/img/angular-logo.png">
-    <span>Courses</span>
+    <span *ngIf="isUserAuthorized()" class="breadcrumbs">Courses</span>
   </div>
   <div class="login-info">
-    <div>user name</div>
-    <div>logoff</div>
+    <div *ngIf="isUserAuthorized()">
+      <div>{{ getUserName() }}</div>
+      <div (click)="logout()">logoff</div>
+    </div>
+    <div *ngIf="!isUserAuthorized()">
+      <div>login</div>
+    </div>
   </div>
 </header>
 

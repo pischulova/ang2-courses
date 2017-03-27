@@ -13,11 +13,11 @@ export class CoursesComponent implements OnInit {
 
   constructor(private coursesService: CoursesService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.courseList = this.coursesService.getCoursesList();
   }
-  
-  removeCourse(courseItem: Item) {
+
+  public removeCourse(courseItem: Item) {
     this.coursesService.removeCourse(courseItem.id);
     console.log('courses ', this.courseList.length);
   }

@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 
 import { CoreModule } from '../../core/core.module';
-import { CourseDetailsComponent } from './course-details.component';
+import { LoginComponent } from './login.component';
 
 @NgModule({
   declarations: [
-    CourseDetailsComponent
+    LoginComponent
   ],
   imports: [
     CoreModule
   ],
   exports: [
-    CourseDetailsComponent
+    LoginComponent
   ]
 })
 
-export class CourseDetailsModule {
+export class LoginModule {
 }
