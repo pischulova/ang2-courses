@@ -49,6 +49,8 @@ export class CoursesService {
   }
 
   public removeCourse(id: number) {
-    this.coursesList = this.coursesList.filter((item) => item.id !== id);
+    const courseItem = this.getCourseById(id);
+    const index = this.coursesList.indexOf(courseItem);
+    this.coursesList.splice(index, 1);
   }
 }
