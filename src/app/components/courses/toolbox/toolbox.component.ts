@@ -10,9 +10,6 @@ import { Input } from '@angular/core/src/metadata/directives';
 export class ToolboxComponent {
   @Input() public searchInput: string;
 
-  constructor() {
-  }
-
   public find() {
     console.log(this.searchInput);
   }

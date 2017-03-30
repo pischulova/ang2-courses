@@ -6,7 +6,7 @@ import { AuthorizationService } from '../../services';
   templateUrl: 'header.component.html',
   styles: [require('./header.component.css')]
 })
-export class LoginComponent {
+export class HeaderComponent {
   constructor(private authService: AuthorizationService) {}
 
   public isUserAuthorized(): boolean {
